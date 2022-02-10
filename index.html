@@ -25,15 +25,13 @@
     <input id="submitForm" type="button" value="Search">
     </form>
   <nasa-image-search id ="search1" view ="list"></nasa-image-search>
-  <button id = "search">Search Images</button>
-  <button id = "reset">Reset Data</button>
   <script type="module">
     import "./src/nasaIMG.js";
 
-    document.querySelector("#search").addEventListener("click", (e) =>{
+    document.querySelector("#searchTerm").addEventListener("click", (e) =>{
     document.querySelector('#search1').loadData = true;
   });
-  document.querySelector("#reset").addEventListener("click", (e) =>{
+  document.querySelector("submitForm").addEventListener("click", (e) =>{
     document.querySelector('#search1').resetData();
   });
   document.querySelector("nasa-image-search").addEventListener("results-changed", (e) =>{
