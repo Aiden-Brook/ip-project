@@ -80,33 +80,38 @@ export class nasaIMG extends LitElement{
         `;
       }
 
-      render(){
+      render() {
         return html`
-            ${this.view === 'list'
+          <div slot="page">
+            <label for="Page">Page :</label>
+            <input type="number" id="Page" />
+          </div>
+          ${this.view === 'list'
             ? html`
-              <ul>
+                <ul>
+                  ${this.images.map(
+                    item => html`
+                      <li>
+                        ${item.image} - ${item.page} - ${item.description} - ${item.name}
+                        - ${item.photographer} - ${item.secCreator}
+                      </li>
+                    `
+                  )}
+                </ul>
+              `
+            : html`
                 ${this.images.map(
                   item => html`
-                    <li>
-                      ${item.image} - ${item.name} - ${item.description} ${item.photographer}
-                      - ${item.secCreator}
-                    </li>
+                    <accent-card image-src="${item.image}"> </accent-card>
+                    <div slot="heading">${item.name}</div>
+                    <div slot="content">${item.description}</div>
+                    photographer="${item.photographer}"
+                    secondary_creator="${item.secCreator}"
                   `
                 )}
-              </ul>
-              `
-        : html`
-            ${this.images.map(
-              item => html`
-                <accent-card image-src="${item.image}" accent-color="light-blue" style="max-width:600px;">
-                <div slot="heading">${item.name}</div>
-                <div slot="content">${item.description}</div>
-                </accent-card>
-              `
-            )}
-          `}
-    `;
-  }
+              `}
+        `;
+      }
 
 }
 customElements.define('nasa-image-search', nasaIMG);
