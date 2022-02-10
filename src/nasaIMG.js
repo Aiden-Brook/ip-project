@@ -48,13 +48,13 @@ export class nasaIMG extends LitElement{
           })
           .then(data => {
             this.images = [];
-            for (let i = 0; i < data.length; i++) {
+            for (let i = 0; i < data.collections.items.length; i++) {
                 const eventInfo = {
-                  name: data[i].title,
-                  description: data[i].description,
-                  page: data[i].page,
-                  photographer: data[i].photographer,
-                  secCreator: data[i].secondary_creator,
+                  name: data.collections.items[i].title,
+                  description: data.collections.items[i].description,
+                  page: data.collections.items[i].page,
+                  photographer: data.collections.items[i].photographer,
+                  secCreator: data.collections.items[i].secondary_creator,
                 };
                 this.data.push(eventInfo);
             }
