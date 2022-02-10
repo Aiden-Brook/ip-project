@@ -50,11 +50,11 @@ export class nasaIMG extends LitElement{
             this.images = [];
             for (let i = 0; i < data.collections.items.length; i++) {
                 const eventInfo = {
-                  name: data.collections.items[i].title,
-                  description: data.collections.items[i].description,
-                  page: data.collections.items[i].page,
-                  photographer: data.collections.items[i].photographer,
-                  secCreator: data.collections.items[i].secondary_creator,
+                  image: data.collections.items[i].links[0].href,
+                  name: data.collections.items[i].data[0].title,
+                  description: data.collections.items[i].data[0].description,
+                  photographer: data.collections.items[i].data[0].photographer,
+                  secCreator: data.collections.items[i].data[0].secondary_creator,
                 };
                 this.data.push(eventInfo);
             }
