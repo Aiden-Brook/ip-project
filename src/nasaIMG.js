@@ -15,7 +15,7 @@ export class nasaIMG extends LitElement{
         return{
             view: {type:String, reflect: true},
             images: {type: Array},
-            loadData: {type: Boolean, reflect: true, attribute: 'loadData',},
+            loadData: {type: Boolean, reflect: true, attribute: 'load-data',},
             page: {type: Number, reflect: true}
         }
     }
